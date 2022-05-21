@@ -5,8 +5,8 @@ COPY package*.json ./
 COPY . .
 # build stage
 FROM develop-stage as build-stage
-RUN yarn
-RUN yarn run build:pwa
+RUN npm install
+RUN npm run build:pwa
 # production stage
 FROM nginx:1.21.6-alpine as production-stage
 COPY nginx.conf /etc/nginx/conf.d/default.conf
