@@ -2,14 +2,14 @@
 <div class="q-mx-sm row">
       <div class="bg-primary col caption timer-text text-center row items-center">
         <div class="col ">
-          Aktive Spieler 
+          {{getReset ? 'Startspieler' : 'Aktive Spieler'}}
           <br>
           <span class="text-white timer-text">{{getActivePlayersOfTeam1}}</span>
         </div>
       </div>
       <div class="bg-secondary col caption timer-text text-center row items-center">
         <div class="col ">
-          Aktive Spieler 
+          {{getReset ? 'Startspieler' : 'Aktive Spieler'}}
           <br>
           <span class="text-white timer-text">{{getActivePlayersOfTeam2}}</span>
         </div>
@@ -25,11 +25,16 @@ import useBattleTimer from 'src/modules/battle-timer/store'
 export default defineComponent({
   name: 'PlayerDisplay',
   setup () {
-    const { getActivePlayersOfTeam1, getActivePlayersOfTeam2 } = useBattleTimer()
+    const {
+      getActivePlayersOfTeam1,
+      getActivePlayersOfTeam2,
+      getReset
+      } = useBattleTimer()
 
     return {
       getActivePlayersOfTeam1,
-      getActivePlayersOfTeam2
+      getActivePlayersOfTeam2,
+      getReset
     }
   }
 })

@@ -20,7 +20,9 @@ export default function useActions () {
     getStartPlayersOfTeam1,
     getActivePlayersOfTeam2,
     getStartPlayersOfTeam2,
-    getReset
+    getReset,
+    hasTeam1Lost,
+    hasTeam2Lost
   } = getters()
 
   function startTimer () {
@@ -39,7 +41,8 @@ export default function useActions () {
   function startTimerOfTeam1 () {
     if (intRefTeam1) return
     intRefTeam1 = setInterval(() => {
-      if (getActivePlayersOfTeam1.value === 0 && getActivePlayersOfTeam2.value === 0) {
+      // if ((getActivePlayersOfTeam1.value === 0 && getActivePlayersOfTeam2.value === 0)) {
+      if (hasTeam1Lost.value || hasTeam2Lost.value) {
         stopTimerOfTeam1()
         return
       }
@@ -54,7 +57,8 @@ export default function useActions () {
   function startTimerOfTeam2 () {
     if (intRefTeam2) return
     intRefTeam2 = setInterval(() => {
-      if (getActivePlayersOfTeam1.value === 0 && getActivePlayersOfTeam2.value === 0) {
+      // if (getActivePlayersOfTeam1.value === 0 && getActivePlayersOfTeam2.value === 0) {
+      if (hasTeam1Lost.value || hasTeam2Lost.value) {
         stopTimerOfTeam2()
         return
       }
