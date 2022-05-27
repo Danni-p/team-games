@@ -14,6 +14,11 @@ const routes: RouteRecordRaw[] = [
         path: 'teamtimer',
         name: 'TeamTimer',
         component: () => import('src/pages/TeamTimerPage.vue')
+      },
+      {
+        path: 'battletimer',
+        name: 'BattleTimer',
+        component: () => import('src/pages/BattleTimerPage.vue')
       }
     ]
   },

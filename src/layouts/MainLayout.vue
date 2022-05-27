@@ -59,6 +59,12 @@ const gameList = [
     caption: 'Zusammen gegen die Zeit',
     icon: 'school',
     page: 'TeamTimer'
+  },
+  {
+    title: 'Battle Timer',
+    caption: 'Das ungleiche Zeitduell',
+    icon: 'school',
+    page: 'BattleTimer'
   }
 ]
 
